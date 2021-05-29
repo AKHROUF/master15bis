@@ -1,5 +1,9 @@
 package dz.etm.m15.formation;
 
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
 import dz.etm.m15.formation.model.Carre;
 import dz.etm.m15.formation.model.FormeGeometrique;
 import dz.etm.m15.formation.model.Rectangle;
@@ -30,6 +34,10 @@ public class Programme {
 		Rectangle r = new Rectangle(null, null, 20, 10);
 
 		Carre c1 = r;
+		if (c1 instanceof Rectangle) {
+			Rectangle r0 = (Rectangle) c1;
+			//r0.getL
+		}
 		int i = c1.getLongueur(); //20
 		//int j = c1.getLargeur(); //ERREUR
 
@@ -39,6 +47,7 @@ public class Programme {
 		FormeGeometrique[] tab = new FormeGeometrique[5];
 		tab[0] = r;
 		tab[1] = c;
+		
 		//tab[0].getLongueur(); //ERREUR
 		
 		//tab[0].getLargeur(); //ERREUR
@@ -50,10 +59,22 @@ public class Programme {
 			Rectangle t = (Rectangle)tab[1];
 		}
 		
-
-FormeGeometrique f = new Rectangle();
-
-Rectangle v = f;
+		Object[] t = {3.14,"Java",r,c};
+		
+		List<Object> liste = new ArrayList<>();
+		liste.add(3.14);
+		liste.add("Java");
+		liste.add(new Carre(null,null, 8));
+		liste.add(c);
+		
+		((Carre)liste.get(2)).superficie();
+		
+		List<FormeGeometrique> l = new ArrayList<>();
+		//l.add(3.14);
+		l.add(new Rectangle(null,null, 20,16));
+		l.get(0).superficie();
+		
+		new FileReader("....");
 
 	}
 }

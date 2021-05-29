@@ -1,5 +1,7 @@
 package dz.etm.m15.formation.model;
 
+import java.sql.SQLException;
+
 public class Point {
 
 	private int x;
@@ -8,7 +10,7 @@ public class Point {
 	public Point() {
 	}	
 
-	public Point(int x, int y) {
+	public Point(int x, int y) throws Exception {
 		deplacer(x,y);
 	}
 
@@ -16,9 +18,15 @@ public class Point {
 		return x;
 	}
 
-	public void setX(int x) {
+	/**
+	 * 
+	 * @param x
+	 * @throws Exception si x < 0
+	 */
+	public void setX(int x) throws Exception  {
 		if (x >= 0)
 			this.x = x;
+		else throw new Exception("X doit être positif");
 	}
 
 	public int getY() {
@@ -30,12 +38,12 @@ public class Point {
 			this.y = y;
 	}
 	
-	public void deplacer(int x, int y) {
+	public void deplacer(int x, int y) throws Exception {
 		setX(x);
 		setY(y);
 	}
 	
-	public void deplacer(Point other) {
+	public void deplacer(Point other) throws Exception {
 //		setX(other.x);
 //		setY(other.y);
 		deplacer(other.x, other.y);
