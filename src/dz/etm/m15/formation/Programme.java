@@ -67,6 +67,12 @@ public class Programme {
 		liste.add(new Carre(null,null, 8));
 		liste.add(c);
 		
+		for (Object o : liste) {
+			System.out.println(o);
+		}
+		liste.forEach(o-> System.out.println(o));
+		liste.forEach(System.out::println);
+		
 		((Carre)liste.get(2)).superficie();
 		
 		List<FormeGeometrique> l = new ArrayList<>();
@@ -74,7 +80,7 @@ public class Programme {
 		l.add(new Rectangle(null,null, 20,16));
 		l.get(0).superficie();
 		
-		new FileReader("....");
+		
 
 	}
 }
